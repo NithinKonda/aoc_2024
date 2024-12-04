@@ -1,9 +1,5 @@
-use reqwest::blocking::Client;
-use std::env;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Fetch input from the Advent of Code website
-    let session_cookie = "53616c7465645f5fa4705d28d6bb037779769ec770e2490a5f04530b439b2f8e157877dc83b7475641c6ba75afcebd1142280f7b06c8e19d432858fd20075ac2";
+    let session_cookie = "";
     let url = "https://adventofcode.com/2024/day/4/input";
     let client = Client::new();
     let response = client
@@ -67,4 +63,3 @@ fn find_word(
         }
     }
     Some(())
-}
