@@ -18,7 +18,7 @@ bool isSafeReport(const std::vector<int>& report) {
             increasing = false;
         }
         
-        // Check decreasing sequence
+     
         if (decreasing && (diff >= 0 || -diff > 3)) {
             decreasing = false;
         }
