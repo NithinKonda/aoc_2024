@@ -1,35 +1,33 @@
-using namespace std;
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <algorithm>
 
-
-
+using namespace std;
 
 bool isSafeReport(const std::vector<int>& report) {
+    if (report.size() < 2) return false;
+    
     bool increasing = true, decreasing = true;
     
     for (size_t i = 1; i < report.size(); ++i) {
         int diff = report[i] - report[i - 1];
         
-        if (diff < 1 || diff > 3) {
-            return false;  
+         if (increasing && (diff <= 0 || diff > 3)) {
+            increasing = false;
         }
         
-        if (diff < 0) {
-            increasing = false;  
+        // Check decreasing sequence
+        if (decreasing && (diff >= 0 || -diff > 3)) {
+            decreasing = false;
         }
-        if (diff > 0) {
-            decreasing = false;          }
     }
     
     return increasing || decreasing;
 }
-int main()
-{
+
+int main() {
     std::ifstream inputFile("input.txt");
     if (!inputFile) {
         std::cerr << "Unable to open file" << std::endl;
@@ -43,12 +41,10 @@ int main()
         std::vector<int> report;
         std::stringstream ss(line);
         int level;
-        
 
         while (ss >> level) {
             report.push_back(level);
         }
-
 
         if (isSafeReport(report)) {
             ++safeReportCount;
@@ -57,7 +53,7 @@ int main()
 
     inputFile.close();  
 
-    cout<<"No of reports that are safe is" << safeReportCount << endl;
+    cout << "Number of safe reports: " << safeReportCount << endl;
 
     return 0;
 }
