@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool isSafeReport(const std::vector<int>& report) {
+bool isSafeReport(const vector<int>& report) {
     if (report.size() < 2) return false;
     
     bool increasing = true, decreasing = true;
@@ -28,18 +28,18 @@ bool isSafeReport(const std::vector<int>& report) {
 }
 
 int main() {
-    std::ifstream inputFile("input.txt");
+    ifstream inputFile("input.txt");
     if (!inputFile) {
-        std::cerr << "Unable to open file" << std::endl;
+        cerr << "Unable to open file" << endl;
         return 1;
     }
 
-    std::string line;
+    string line;
     int safeReportCount = 0;
 
-    while (std::getline(inputFile, line)) {
-        std::vector<int> report;
-        std::stringstream ss(line);
+    while (getline(inputFile, line)) {
+        vector<int> report;
+        stringstream ss(line);
         int level;
 
         while (ss >> level) {
