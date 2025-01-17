@@ -29,7 +29,7 @@ int main() {
         int x=0;
         while (x<1000 && isdigit(s[i])){
 
-            x = 10*x+( - '0');
+            x = 10*x+(s[i] - '0');
             i++;
         }
 
@@ -39,7 +39,7 @@ int main() {
         return -1;
         
         
-    }
+    };
 
     for(int i=0;i<n;i++) {
         if(s[i] == 'm'){
@@ -64,10 +64,10 @@ int main() {
             }
         }
          
-         cout<<answer<<endl;
     }
 
 
+         cout<<answer<<endl;
 
 
 }
