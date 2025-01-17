@@ -40,7 +40,7 @@ const vector<pair<int,int>> dirs={{-1,-1},{-1,1},{1,1},{1,-1}};
                     s+=a[row+dir.first][col+dir.second];
                 }
 
-                if(s=="MMSS" || s=="MSSM" || s=="SSMM" || s="SMMS"){
+                if(s=="MMSS" || s=="MSSM" || s=="SSMM" || s=="SMMS"){
                     answer++;
                 }
             }
