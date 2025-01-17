@@ -22,6 +22,25 @@ int main() {
     
     int n = (int) s.size();
 
+
+
+
+    auto getNumber = [&](int &i){
+        int x=0;
+        while (x<1000 && isdigit(s[i])){
+
+            x = 10*x+( - '0');
+            i++;
+        }
+
+        if( 1<=x && x<=999) {
+            return x;
+        }
+        return -1;
+        
+        
+    }
+
     for(int i=0;i<n;i++) {
         if(s[i] == 'm'){
             if(s[i+1]=='u' && s[i+2] == 'l' && s[i+3]=='(')
