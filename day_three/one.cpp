@@ -6,19 +6,49 @@ using namespace std;
 #include <algorithm>
 
 int main() {
-    ifstream inputFile("input.txt");
-    if (!inputFile) {
-        cerr << "Unable to open file" << endl;
+    ifstream inputfile("input.txt");
+    if (!inputfile) {
+        cerr << "unable to open file input.txt";
         return 1;
     }
 
-    string s;
-    char c;
-    while (inputFile.get(c)) {
-        s += c;
+    stringstream buffer;
+    buffer << inputfile.rdbuf();
+    string s = buffer.str();
+
+
+
+    int answer = 0;
+    
+    int n = (int) s.size();
+
+    for(int i=0;i<n;i++) {
+        if(s[i] == 'm'){
+            if(s[i+1]=='u' && s[i+2] == 'l' && s[i+3]=='(')
+            {
+                i+=4;
+
+
+                int x= getNumber(i);
+                if(s[i] == ',')
+                {
+                    i+=1;
+                    int y = getNumber(i);
+
+
+                    if(s[i]==')'){
+                        if(x!=-1 && y!=-1) {
+                            answer+=x*y;
+                        }
+                    }
+                }
+            }
+        }
+         
+         cout<<answer<<endl;
     }
 
-    cout << s << endl;
 
-    return 0;
+
+
 }
