@@ -41,7 +41,19 @@ int main() {
         
     };
 
-    for(int i=0;i<n;i++) {
+
+    bool enable = true;
+
+    for(int i=0;i<n-7;i++) {
+
+
+        if (s.substr(i,i+4) == "do()") {
+            enable= true;
+        }
+        if(s.substr(i,i+7)=="don\'t"){
+            enable = false;
+        }
+
         if(s[i] == 'm'){
             if(s[i+1]=='u' && s[i+2] == 'l' && s[i+3]=='(')
             {
