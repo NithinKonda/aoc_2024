@@ -42,11 +42,19 @@ int main() {
     };
 
 
+    bool enable = true;
 
-    for(int i=0;i<n-4;i++) {
+    for(int i=0;i<n-7;i++) {
 
 
-           if(s[i] == 'm'){
+        if (s.substr(i,4) == "do()") {
+            enable= true;
+        }
+        if(s.substr(i,7)=="don\'t"){
+            enable = false;
+        }
+
+        if(enable && s[i] == 'm'){
             if(s[i+1]=='u' && s[i+2] == 'l' && s[i+3]=='(')
             {
                 i+=4;
