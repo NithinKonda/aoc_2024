@@ -27,6 +27,10 @@ int main() {
                     x=10*x+(s[i]-'0');
                     i++;
                 }
+                v.push_back(x);
+
+
+                assert(s[i] == ',' || s[i] == '|' || s[i]=='\n' || s[i]==0);
             }
         }
     }
