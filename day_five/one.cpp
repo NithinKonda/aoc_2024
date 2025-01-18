@@ -14,6 +14,21 @@ int main() {
         }
 
         int len = (int) s.length();
+
+
+        vector<int> v;
+        for(int i=0;i<len;i++)
+        {
+            if(isdigit(s[i]))
+            {
+                int x=0;
+                while(isdigit(s[i]))
+                {
+                    x=10*x+(s[i]-'0');
+                    i++;
+                }
+            }
+        }
     }
 
 }
