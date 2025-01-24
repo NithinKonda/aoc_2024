@@ -21,4 +21,11 @@ int main() {
 			}
 		}
 	}
+
+    auto solveCycle = [&]() {
+		pair<int,int> me = start_me;
+		int dir = 0;
+		
+		vector<bool> vis(H * W * 4);
+    
 }
