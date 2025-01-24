@@ -27,5 +27,27 @@ int main() {
 		int dir = 0;
 		
 		vector<bool> vis(H * W * 4);
-    
+    while (true) {
+			// turns++;
+			// if (turns == H * W * 4) {
+				// return true;
+			// }
+			int hash = (me.first * W + me.second) * 4 + dir;
+			if (vis[hash]) {
+				return true;
+			}
+			vis[hash] = true;
+			int r2 = me.first + dirs[dir].first;
+			int c2 = me.second + dirs[dir].second;
+			if (!(0 <= r2 && r2 < H && 0 <= c2 && c2 < W)) {
+				return false; // outside
+			}
+			if (a[r2][c2] == '.') {
+				me = {r2, c2};
+			}
+			else {
+				dir = (dir + 1) % 4;
+			}
+		}
+	};
 }
