@@ -50,4 +50,21 @@ int main() {
 			}
 		}
 	};
+
+
+    int answer = 0;
+	for (int row = 0; row < H; row++) {
+		for (int col = 0; col < W; col++) {
+			if (a[row][col] == '.' && start_me != make_pair(row, col)) {
+				// cout << row << " " << col << endl;
+				a[row][col] = '#';
+				if (solveCycle()) {
+					// cout << row << " " << col << endl;
+					answer++;
+				}
+				a[row][col] = '.';
+			}
+		}
+	}
+	cout << answer << "\n";
 }
