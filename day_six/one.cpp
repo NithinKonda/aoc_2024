@@ -21,4 +21,20 @@ int main() {
 			}
 		}
 	}
+    set<pair<int,int>> vis;
+	while (true) {
+		vis.insert(me);
+		int r2 = me.first + dirs[dir].first;
+		int c2 = me.second + dirs[dir].second;
+		if (!(0 <= r2 && r2 < H && 0 <= c2 && c2 < W)) {
+			break; // outside
+		}
+		if (a[r2][c2] == '.') {
+			me = {r2, c2};
+		}
+		else {
+			dir = (dir + 1) % 4;
+		}
+	}
+	cout << vis.size() << "\n";
 }
